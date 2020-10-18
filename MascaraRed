@@ -1,0 +1,11 @@
+package mascarared;
+
+public class MascaraRed {
+    
+
+    public static void main(String[] args) {
+
+        new Ventana();
+    }
+    
+}
