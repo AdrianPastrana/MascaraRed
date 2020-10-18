@@ -1,0 +1,158 @@
+
+package mascarared;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import static mascarared.Ventana.clase;
+import static mascarared.Ventana.limpiar;
+import static mascarared.Ventana.masc1;
+import static mascarared.Ventana.masc2;
+import static mascarared.Ventana.masc3;
+import static mascarared.Ventana.masc4;
+import static mascarared.Ventana.notacion;
+import static mascarared.Ventana.octeto1;
+import static mascarared.Ventana.octeto2;
+import static mascarared.Ventana.octeto3;
+import static mascarared.Ventana.octeto4;
+import static mascarared.Ventana.resolver;
+import static mascarared.Ventana.resultado;
+
+public class Eventos implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {     
+        if(ae.getSource()==resolver){
+            //-*-**-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*--*-
+            int numerovalido= (int) Integer.parseInt(octeto1.getText());
+            if(numerovalido> 0 && numerovalido <= 127){
+                //System.out.println("Clase A");
+                masc1.setText("255");
+                masc2.setText("0");
+                masc3.setText("0");
+                masc4.setText("0");
+            }
+            if(numerovalido> 127 && numerovalido <= 191){
+                //System.out.println("Clase B");
+                
+                masc1.setText("255");
+                masc2.setText("255");
+                masc3.setText("0");
+                masc4.setText("0");
+            }
+            if(numerovalido> 191 && numerovalido <= 223){
+               // System.out.println("Clase C");
+                
+                masc1.setText("255");
+                masc2.setText("255");
+                masc3.setText("255");
+                masc4.setText("0");
+            }
+            
+            //-************************************************
+            if(numerovalido> 0 && numerovalido <= 127){
+                //System.out.println("Clase A");
+                clase.setText(" A");
+            }
+            if(numerovalido> 127 && numerovalido <= 191){
+                //System.out.println("Clase B");
+                clase.setText(" B");
+                
+            }
+            if(numerovalido> 191 && numerovalido <= 223){
+                //System.out.println("Clase C"); 
+                clase.setText(" C");
+            }
+         
+            //*------------------------------------------------*
+            if(numerovalido> 0 && numerovalido <= 127){
+                //System.out.println("/8");
+                notacion.setText(" /8");
+            }
+            if(numerovalido> 127 && numerovalido <= 191){
+                //System.out.println("/16");
+                notacion.setText(" /16");
+                
+            }
+            if(numerovalido> 191 && numerovalido <= 223){
+                //System.out.println("/24");   
+                notacion.setText(" /24");
+            }
+            
+            
+            //---------------------------------------------------
+            int numero=3;
+            
+            if(octeto1.getText().length()>numero){
+                System.out.println("Error en la caja 1. Exceso de digitos en la caja");
+            } else{
+                if(octeto1.getText().length()==0){
+                    System.out.println("Error ingresa caracter en la caja 1");
+                }
+            }
+            
+            if(octeto2.getText().length()>numero){
+                System.out.println("Error en la caja 2. Exceso de digitos en la caja ");
+            }else {
+                if(octeto2.getText().length()==0){
+                    System.out.println("Error ingresa caracter en la caja 2"); 
+                }
+            }
+            
+            if(octeto3.getText().length()>numero){
+                System.out.println("Error en la caja 3. Exceso de digitos en la caja");
+            } else {
+                if(octeto3.getText().length()==0){
+                    System.out.println("Error ingresa caracter en la caja 3"); 
+                }
+            }
+            
+            if(octeto4.getText().length()>numero){
+                System.out.println("Error en la caja 4. Exceso de digitos en la caja");
+            } else {
+                if(octeto4.getText().length()==0){
+                    System.out.println("Error ingresa caracter en la caja 4"); 
+                }
+            }
+            
+            //********************************************************************
+            
+            int uno, dos, tres, cuatro;
+            uno = (int)Integer.parseInt(octeto1.getText());
+            dos= (int) Integer.parseInt(octeto2.getText());
+            tres= (int) Integer.parseInt(octeto3.getText());
+            cuatro= (int) Integer.parseInt(octeto4.getText());
+            if(uno> 223){
+                 JOptionPane.showMessageDialog(null," Error caja 1 numero no reconocido, es mayor a 223");
+            }
+            if(dos> 223){
+                 JOptionPane.showMessageDialog(null," Error caja 2 numero no reconocido, es mayor a 223");
+            }
+            if(tres> 223){
+                 JOptionPane.showMessageDialog(null," Error caja 3 numero no reconocido, es mayor a 223");
+            }
+            if(cuatro> 223){
+                 JOptionPane.showMessageDialog(null," Error caja 4 numero no reconocido, es mayor a 223");
+            }
+            
+            
+            resultado.setText(new DireccionRed().direccion(uno, dos, tres, cuatro));
+            
+        }
+        
+        if(ae.getSource()==limpiar){
+            octeto1.setText("");
+            octeto2.setText("");
+            octeto3.setText("");
+            octeto4.setText("");
+            masc1.setText("");
+            masc2.setText("");
+            masc3.setText("");
+            masc4.setText("");
+            resultado.setText("");
+            clase.setText("");
+            notacion.setText("");
+        }
+    }
+         
+}
