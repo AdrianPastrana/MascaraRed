@@ -1,0 +1,35 @@
+
+package mascarared;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+public class Componentes {
+    
+      public JButton getButton(String msg) { 
+        JButton b = new JButton();
+        b.setText(msg); 
+        return b;
+    }
+    
+    public JLabel getLabel(String ms){
+        JLabel l= new JLabel(ms);
+        return l;
+    }
+    
+      public JTextField getCaja(int tam){ // Cajas de texto
+        JTextField t = new JTextField(tam);
+        return t;
+    }
+    
+    public JTextArea getArea(int w, int h){
+        //retorna el jtext area 
+        // no puedes meter texto en las barras 
+        JTextArea area = new JTextArea(w,h);
+        return area;
+    }
+    
+}
