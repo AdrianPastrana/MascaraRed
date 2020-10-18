@@ -1,0 +1,157 @@
+package mascarared;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Ventana {
+
+    static JLabel uno, dos, punto1, punto2, punto3, punto4, punto5, punto6,
+            punto7, punto8, resultado, clase, notacion,fnd,dir,clas,not;
+    static JButton validar,identificar,resolver,asignar,denotacion,limpiar;
+    static JTextArea areacliente;
+    static JTextField octeto1, octeto2, octeto3, octeto4, masc1, masc2, masc3, masc4;
+
+    Ventana() {
+        JFrame j = new JFrame();
+        Componentes c = new Componentes();
+        j.setTitle(" Direcciones IP");
+        j.setSize(320, 250);
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setLayout(null);
+
+        uno = c.getLabel("IP");
+        uno.setBounds(50,30, 100, 20);
+        uno.setFont(new java.awt.Font("Arial",1,18));
+        uno.setForeground(Color.black);
+        
+        octeto1 = c.getCaja(4);
+        octeto1.setBounds(75,30, 50, 20);
+        
+        punto1 = c.getLabel(".");
+        punto1.setBounds(126, 30, 15, 25);
+        octeto2 = c.getCaja(4);
+        octeto2.setBounds(130,30, 50, 20);
+        
+        punto2 = c.getLabel(".");
+        punto2.setBounds(180, 30, 15, 25);
+        octeto3 = c.getCaja(4);
+        octeto3.setBounds(185,30, 50, 20);
+        
+        punto3 = c.getLabel(".");
+        punto3.setBounds(236, 30, 15, 25);
+        octeto4 = c.getCaja(4);
+        octeto4.setBounds(240,30, 50, 20);
+        //**************************************************************+
+        dos = c.getLabel("Mascara");
+        dos.setBounds(1,60, 100, 20);
+        dos.setFont(new java.awt.Font("Arial",1,18));
+        dos.setForeground(Color.black);
+
+        masc1 = c.getCaja(4);
+        masc1.setBounds(75,60, 50, 20);
+        punto4 = c.getLabel(".");
+        punto4.setBounds(126, 60, 15, 25);
+        masc2 = c.getCaja(4);
+        masc2.setBounds(130,60, 50, 20);
+        punto5 = c.getLabel(".");
+        punto5.setBounds(180, 60, 15, 25);
+        masc3 = c.getCaja(4);
+        masc3.setBounds(185,60, 50, 20);
+        punto6 = c.getLabel(".");
+        punto6.setBounds(236, 60, 15, 25);
+        masc4 = c.getCaja(4);
+        masc4.setBounds(240,60, 50, 20);
+        
+        fnd=c.getLabel(" ");//Fondo de pantalla del JFrame
+       String ee = "C:\\Users\\hp\\Pictures\\p2.jpg";
+       ImageIcon fn = new ImageIcon(ee);
+       fnd.setPreferredSize(new Dimension(600,450));
+       fnd.setIcon(fn);
+       fnd.setBounds(0, 0, 320,250);
+        
+        
+        //validar = c.getButton("Validar");
+        //asignar= c.getButton("Asignar Mascara");
+        resolver= c.getButton("Resolver");
+        resolver.setBounds(20,170, 100, 20);
+        resolver.setBackground(Color.LIGHT_GRAY);
+        //identificar = c.getButton("Identificar");
+        //denotacion= c.getButton("Denotacion");
+        limpiar=c.getButton("Limpiar");
+        limpiar.setBounds(170,170, 100, 20);
+        limpiar.setBackground(Color.LIGHT_GRAY);
+        
+        resultado= c.getLabel(" ");
+        resultado.setFont(new java.awt.Font("Arial",1,20));
+        resultado.setBounds(100,90, 200, 20);
+        
+        dir= c.getLabel("Dirección: ");
+        dir.setFont(new java.awt.Font("Arial",1,20));
+        dir.setBounds(0,90, 200, 20);
+        
+        clase = c.getLabel(" ");
+        clase.setFont(new java.awt.Font("Arial",1,20));
+        clase.setBounds(100,115, 100, 20);
+        
+        clas= c.getLabel("Clase: ");
+        clas.setFont(new java.awt.Font("Arial",1,20));
+        clas.setBounds(0,115, 200, 20);
+        
+        notacion= c.getLabel("");
+        notacion.setFont(new java.awt.Font("Arial",1,20));
+        notacion.setBounds(100,140, 400, 20);
+        
+        not= c.getLabel("Notación: ");
+        not.setFont(new java.awt.Font("Arial",1,20));
+        not.setBounds(0,140, 200, 20);
+        
+        //validar.addActionListener(new Eventos());
+       // asignar.addActionListener(new Eventos());
+       // identificar.addActionListener(new Eventos());
+       resolver.addActionListener(new Eventos());
+       // denotacion.addActionListener(new Eventos());
+        limpiar.addActionListener(new Eventos());
+        
+        j.add(uno);
+        j.add(octeto1);
+        j.add(punto1);
+        j.add(octeto2);
+        j.add(punto2);
+        j.add(octeto3);
+        j.add(punto3);
+        j.add(octeto4);
+        j.add(dos);
+        j.add(masc1);
+        j.add(punto4);
+        j.add(masc2);
+        j.add(punto5);
+        j.add(masc3);
+        j.add(punto6);
+        j.add(masc4);
+        //j.add(validar);
+       // j.add(asignar);
+        //j.add(identificar);
+        j.add(resolver);
+        //j.add(denotacion);
+        j.add(limpiar);
+       
+        j.add(resultado);
+        j.add(clase);
+        j.add(notacion);
+        j.add(dir);
+        j.add(clas);
+        j.add(not);
+        j.add(fnd);
+        j.setVisible(true);
+
+    }
+
+}
