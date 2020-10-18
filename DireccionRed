@@ -1,0 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mascarared;
+
+/**
+ *
+ * @author ACER
+ */
+public class DireccionRed {
+       public String direccion(int oc1,int oc2,int oc3,int oc4){
+        String direccion_red_var="";
+        if (oc1>=1 && oc1<=127){
+            direccion_red_var=""+oc1+".0.0.0";
+        }
+        else if(oc1>=128 && oc1<=191){
+            direccion_red_var=""+oc1+"."+oc2+".0.0";
+        }
+        else if (oc1>=192 && oc1<=223 ){
+             direccion_red_var=""+oc1+"."+oc2+"."+oc3+".0";
+        }
+        return direccion_red_var;
+    
+}
+    
+}
